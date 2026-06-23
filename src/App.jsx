@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 
 // ─── Config ─────────────────────────────────────────────────────────
-const SUPABASE_URL = "https://hetlweyvkpefqyxoazwh.supabase.co";
+const SUPABASE_URL = "https://ikaaxcovjtolmgqwnsrw.supabase.co";
 const SUPABASE_ANON_KEY = "sb_publishable_FDAZRMp7laWgu3BqYbgzgg_ld12fyh2";
 const TABLE = "checklist_items";
 const APP_TITLE = "Lista condivisa";
