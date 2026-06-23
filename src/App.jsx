@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 
 // ─── Config ─────────────────────────────────────────────────────────
-const SUPABASE_URL = "https://hetlweyvkpefqyxoazwh.supabase.co";
-const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhldGx3ZXl2a3BlZnF5eG9hendoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDQxMTA1MjksImV4cCI6MjA1OTY4NjUyOX0.kWbIKA-SWbJHLObtfJcRPSuOtPbZwVzrxEZIOJ6SLUQ";
+const SUPABASE_URL = "https://ikaaxcovjtolmgqwnsrw.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_FDAZRMp7laWgu3BqYbgzgg_ld12fyh2";
 const TABLE = "checklist_items";
 const APP_TITLE = "Lista condivisa";
 
