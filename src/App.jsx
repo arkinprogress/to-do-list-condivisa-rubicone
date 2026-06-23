@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 
 // ─── Config ─────────────────────────────────────────────────────────
-const SUPABASE_URL = "https://ikaaxcovjtolmgqwnsrw.supabase.co";
-const SUPABASE_ANON_KEY = "sb_publishable_FDAZRMp7laWgu3BqYbgzgg_ld12fyh2";
+const SUPABASE_URL = "https://hetlweyvkpefqyxoazwh.supabase.co";
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhldGx3ZXl2a3BlZnF5eG9hendoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDQxMTA1MjksImV4cCI6MjA1OTY4NjUyOX0.kWbIKA-SWbJHLObtfJcRPSuOtPbZwVzrxEZIOJ6SLUQ";
 const TABLE = "checklist_items";
 const APP_TITLE = "Lista condivisa";
 
@@ -568,29 +568,32 @@ export default function App() {
 
       {/* Input */}
       <div style={{ padding: "16px 16px 0", maxWidth: 540, margin: "0 auto", boxSizing: "border-box" }}>
+        {/* Text input full width */}
+        <input
+          ref={inputRef}
+          value={input}
+          onChange={e => setInput(e.target.value)}
+          onKeyDown={e => e.key === "Enter" && handleAdd()}
+          placeholder="Aggiungi voce…"
+          style={{
+            width: "100%", padding: "13px 15px", borderRadius: 12,
+            border: "2px solid #E2DDD8", fontSize: 16, outline: "none",
+            background: "#fff", color: "#1A1A2E", transition: "border-color 0.2s",
+            boxSizing: "border-box", marginBottom: 8, display: "block",
+          }}
+          onFocus={e => e.target.style.borderColor = "#5B5FEF"}
+          onBlur={e => e.target.style.borderColor = "#E2DDD8"}
+        />
+        {/* Camera + Add button row */}
         <div style={{ display: "flex", gap: 8 }}>
-          <input
-            ref={inputRef}
-            value={input}
-            onChange={e => setInput(e.target.value)}
-            onKeyDown={e => e.key === "Enter" && handleAdd()}
-            placeholder="Aggiungi voce…"
-            style={{
-              flex: 1, padding: "13px 15px", borderRadius: 12,
-              border: "2px solid #E2DDD8", fontSize: 16, outline: "none",
-              background: "#fff", color: "#1A1A2E", transition: "border-color 0.2s",
-            }}
-            onFocus={e => e.target.style.borderColor = "#5B5FEF"}
-            onBlur={e => e.target.style.borderColor = "#E2DDD8"}
-          />
           <label style={{
-            padding: "13px 14px", borderRadius: 12, border: "2px solid #E2DDD8",
+            flex: 1, padding: "13px 14px", borderRadius: 12, border: "2px solid #E2DDD8",
             background: imageData ? "#E8F5E9" : "#fff", cursor: "pointer",
             display: "flex", alignItems: "center", justifyContent: "center",
-            fontSize: 20, lineHeight: 1, color: imageData ? "#3DAA72" : "#888",
-            flexShrink: 0, transition: "all 0.2s",
+            fontSize: 15, gap: 6, color: imageData ? "#3DAA72" : "#666",
+            transition: "all 0.2s",
           }}>
-            📷
+            📷 <span>{imageData ? "Foto allegata" : "Foto"}</span>
             <input type="file" accept="image/*" capture="environment"
               onChange={handleImageSelect} style={{ display: "none" }} />
           </label>
@@ -598,12 +601,12 @@ export default function App() {
             onClick={handleAdd}
             disabled={!input.trim()}
             style={{
-              padding: "13px 17px", borderRadius: 12, border: "none",
+              flex: 2, padding: "13px 17px", borderRadius: 12, border: "none",
               background: input.trim() ? "#5B5FEF" : "#C8CAEE", color: "#fff",
-              fontSize: 22, cursor: input.trim() ? "pointer" : "default",
-              transition: "background 0.2s", lineHeight: 1, flexShrink: 0,
+              fontSize: 16, fontWeight: 700, cursor: input.trim() ? "pointer" : "default",
+              transition: "background 0.2s", lineHeight: 1,
             }}
-          >＋</button>
+          >＋ Aggiungi</button>
         </div>
 
         {imagePreview && (
